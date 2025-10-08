@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.5.4/dist/aframe-extras.min.js"></script>
+		<script type="text/javascript" src="aframe-lod.js"></script>
+	</head>
+	<body>
+		<a-scene sky="false">
+			<a-assets>
+				<a-asset-item id="Icosphere_1" src="assets/3d_models/Icosphere_1.glb"></a-asset-item>
+				<a-asset-item id="Icosphere_2" src="assets/3d_models/Icosphere_2.glb"></a-asset-item>
+				<a-asset-item id="Icosphere_4" src="assets/3d_models/Icosphere_4.glb"></a-asset-item>
+				<a-asset-item id="Icosphere_6" src="assets/3d_models/Icosphere_6.glb"></a-asset-item>
+			</a-assets>
+
+			<a-camera>
+				<a-cursor>
+				</a-cursor>
+			</a-camera>
+			
+			<!--<a-entity gltf-model="#myModel" position="0 0 -5" scale="1 1 1" rotation="0 180 0"></a-entity>-->
+			<a-lod position="0 1.25 -20" scale="1 1 1" rotation="0 180 0">
+				<a-entity lod-level="0" gltf-model="#Icosphere_6"></a-entity>
+				<a-entity lod-level="2" gltf-model="#Icosphere_4"></a-entity>
+				<a-entity lod-level="5" gltf-model="#Icosphere_2"></a-entity>			
+				<a-entity lod-level="10" gltf-model="#Icosphere_1"></a-entity>
+				<a-entity lod-level="20"></a-entity>
+			</a-lod>
+			
+			<a-lod position="0 0 0" rotation="-90 0 0" scale="5 5 5" >
+				<a-plane lod-level="0" color="green"></a-plane>
+				<a-plane lod-level="2" color="orange"></a-plane>
+				<a-plane lod-level="5" color="red"></a-plane>
+				<a-plane wireframe="true" lod-level="10" color="black"></a-plane>
+			</a-lod>
+
+			<a-lod position="0 0 -5" rotation="-90 0 0" scale="5 5 5" >
+				<a-plane lod-level="0" color="green"></a-plane>
+				<a-plane lod-level="2" color="orange"></a-plane>
+				<a-plane lod-level="5" color="red"></a-plane>
+				<a-plane wireframe="true" lod-level="10" color="black"></a-plane>
+			</a-lod>
+			
+			<a-lod position="0 0 -10" rotation="-90 0 0" scale="5 5 5" >
+				<a-plane lod-level="0" color="green"></a-plane>
+				<a-plane lod-level="2" color="orange"></a-plane>
+				<a-plane lod-level="5" color="red"></a-plane>
+				<a-plane wireframe="true" lod-level="10" color="black"></a-plane>
+			</a-lod> 
+
+			<a-lod position="0 0 -15" rotation="-90 0 0" scale="5 5 5" >
+				<a-plane lod-level="0" color="green"></a-plane>
+				<a-plane lod-level="2" color="orange"></a-plane>
+				<a-plane lod-level="5" color="red"></a-plane>
+				<a-plane wireframe="true" lod-level="10" color="black"></a-plane>
+			</a-lod>
+			
+			<a-lod position="0 0 -20" rotation="-90 0 0" scale="5 5 5" >
+				<a-plane lod-level="0" color="green"></a-plane>
+				<a-plane lod-level="2" color="orange"></a-plane>
+				<a-plane lod-level="5" color="red"></a-plane>
+				<a-plane wireframe="true" lod-level="10" color="black"></a-plane>
+			</a-lod> 
+			
+			<a-light type="directional" position="0 1 1" intensity="1"></a-light>
+		</a-scene>
+	</body>
+</html>
