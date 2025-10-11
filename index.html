@@ -8,6 +8,8 @@
 		<script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.5.4/dist/aframe-extras.min.js"></script>
 		<script type="text/javascript" src="js/aframe-lod.js"></script>
 
+		
+		<!--A-Frame Learning to register primitives (creating prefabs - with desired components and difining attributes)-->
 		<script>
 			AFRAME.registerPrimitive('a-lod-test-ground-plane', {
 				defaultComponents: {
@@ -20,27 +22,30 @@
 					width: 'geometry.width',
 					height: 'geometry.height',
 					segmentsHeight: 'geometry.segmentsHeight',
-					segmentsWidth: 'geometry.segmentswidth',
+					segmentsWidth: 'geometry.segmentsWidth',
 					color: 'material.color',
 			  	}
 			});
 		</script>
 	</head>
 	<body>
-		<a-scene sky="false" gltf-model="dracoDecoderPath: draco_decoder/;">
+		<a-scene id="scene" gltf-model="dracoDecoderPath:/js/draco_decoder/;basisTranscoderPath:/js/basis_transcoder/">
+			<!--Importing Assets-->
 			<a-assets>
 				<a-asset-item id="Icosphere_1" src="assets/3d_models/Icosphere_1.glb"></a-asset-item>
 				<a-asset-item id="Icosphere_2" src="assets/3d_models/Icosphere_2.glb"></a-asset-item>
 				<a-asset-item id="Icosphere_4" src="assets/3d_models/Icosphere_4.glb"></a-asset-item>
 				<a-asset-item id="Icosphere_6" src="assets/3d_models/Icosphere_6.glb"></a-asset-item>
+				<a-asset-item id="Ganpatopule-Model" src="assets/3d_models/ganpatipule.glb"></a-asset-item>
+				<img id="sky" src="/assets/textures/ganpatipule_surrounding_360.jpg">
 			</a-assets>
 
-			<a-assets>
-				<a-asset-item id="Ganpatopule-Site1" src="assets/3d_models/ganpatipule.glb"></a-asset-item>
-			</a-assets>
+			<!--Using Draco Encoded Model-->
+			<a-entity gltf-model="#Ganpatopule-Model"></a-entity>
 
-			<a-entity gltf-model="#Ganpatopule-Site1"></a-entity>
+			<a-sky src="#sky" rotation="0 135 1"></a-sky>
 
+			<a-text font="kelsonsans" value="Ganpatipule Geoglyph Site, Ratnagiri" width="7" position="-2.6 1.67 -5"></a-text>
 			<!--
 			<a-lod-test-ground-plane></a-lod-test-ground-plane>
 			
